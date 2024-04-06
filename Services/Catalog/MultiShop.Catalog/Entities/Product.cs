@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace MultiShop.Catalog.Entities
 {
-    public class Product
+    public class Product : IEntity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
