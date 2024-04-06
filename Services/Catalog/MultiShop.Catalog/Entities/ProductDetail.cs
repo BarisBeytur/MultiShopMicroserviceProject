@@ -9,7 +9,7 @@ namespace MultiShop.Catalog.Entities
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string Description { get; set; }
-        public decimal Info { get; set; }
+        public string Info { get; set; }
 
         public string ProductId { get; set; }
         [BsonIgnore]

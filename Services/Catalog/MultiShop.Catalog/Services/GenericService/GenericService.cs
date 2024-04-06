@@ -22,7 +22,7 @@ namespace MultiShop.Catalog.Services.GenericService
         {
             var client = new MongoClient(_databaseSettings.ConnectionString);
             var database = client.GetDatabase(_databaseSettings.DatabaseName);
-            _collection = database.GetCollection<TEntity>($"{nameof(TEntity)}CollectionName");
+            _collection = database.GetCollection<TEntity>($"{typeof(TEntity)}CollectionName");
 
             if (_collection == null)
             {
@@ -60,7 +60,6 @@ namespace MultiShop.Catalog.Services.GenericService
             var value = _mapper.Map<TEntity>(TUpdateDto);
 
             await _collection.ReplaceOneAsync(x => x.Id == value.Id, value);
-
         }
     }
 }
