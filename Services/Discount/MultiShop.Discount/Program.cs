@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using MultiShop.Discount.Context;
 using MultiShop.Discount.Services;
@@ -5,6 +6,14 @@ using MultiShop.Discount.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = builder.Configuration["IdentityServerUrl"];
+        options.RequireHttpsMetadata = false;
+        options.Audience = "DiscountResource";
+    });
 
 builder.Services.AddTransient<DapperContext>();
 builder.Services.AddControllers();
@@ -25,6 +34,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
