@@ -7,24 +7,21 @@ namespace MultiShop.Basket.Settings
 
         private readonly string _host;
         private readonly int _port;
-        private ConnectionMultiplexer _connectionMultiplexer;
 
-        public RedisService(string host, int port)
+        public RedisService(IConfiguration configuration)
         {
-            _host = host;
-            _port = port;
+            _host = configuration.GetSection("RedisSettings:Host").Value;
+            _port = int.Parse(configuration.GetSection("RedisSettings:Port").Value);
         }
 
         public ConnectionMultiplexer Connect()
         {
-            _connectionMultiplexer = ConnectionMultiplexer.Connect($"{_host}:{_port}");
-
-            return _connectionMultiplexer;
+            return ConnectionMultiplexer.Connect($"{_host}:{_port}"); ;
         }
 
         public IDatabase GetDb(int db = 1)
         {
-            return _connectionMultiplexer.GetDatabase(0);
+            return Connect().GetDatabase(0);
         }
 
     }

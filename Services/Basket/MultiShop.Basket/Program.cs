@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MultiShop.Basket.LoginServices;
 using MultiShop.Basket.Services;
@@ -30,20 +31,24 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IBasketService, BasketService>();
+builder.Services.AddSingleton<RedisService>();
 
 // RedisSettings appsettings.json dosyasindan aliniyor
-builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
+//builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
 
 // RedisService singleton olarak ekleniyor
-builder.Services.AddSingleton<RedisService>(sp =>
-{
-    // RedisService icin gerekli ayarlar aliniyor
-    var redisSettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
-    // RedisService olusturuluyor ve baglanti saglaniyor
-    var redis = new RedisService(redisSettings.Host, redisSettings.Port);
-    redis.Connect();
-    return redis;
-});
+//builder.Services.AddSingleton<RedisService>(sp =>
+//{
+//    // RedisService icin gerekli ayarlar aliniyor
+//    var redisSettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
+//    // RedisService olusturuluyor ve baglanti saglaniyor
+//    var redis = new RedisService(redisSettings.Host, redisSettings.Port);
+//    redis.Connect();
+//    return redis;
+//});
+
+builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
+
 
 
 // zorunlu olmasi gereken policy eklendi
