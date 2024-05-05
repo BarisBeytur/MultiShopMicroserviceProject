@@ -1,15 +1,33 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+@await Component.InvokeAsync("_AdminLayoutHeadComponent")
+
+<body class="sidebar-mini">
+    <div class="wrapper">
+
+
+        @await Component.InvokeAsync("_AdminLayoutHeaderComponent")
+
+        @await Component.InvokeAsync("_AdminLayoutSidebarComponent")
+
+        @await Component.InvokeAsync("_AdminLayoutMainSectionViewBagComponent")
+
+        @RenderBody()
+
+    </div>
+    <footer class="main-footer dark-bg">
+        <div class="pull-right hidden-xs"> Version 1.0</div>
+        Copyright &copy; 2017 Yourdomian. All rights reserved.
+    </footer>
+    </div>
+
+    <script src="~/MainDownload-OvioAdmin-html5-template/html/dist/js/jquery.min.js"></script>
+    <script src="~/MainDownload-OvioAdmin-html5-template/html/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/MainDownload-OvioAdmin-html5-template/html/dist/js/ovio.js"></script>
 </body>
 </html>
