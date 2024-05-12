@@ -6,6 +6,7 @@ using System.Text;
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/FeatureSlider")]
     public class FeatureSliderController : Controller
     {
         private readonly IHttpClientFactory _clientFactory;
@@ -52,6 +53,8 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("CreateFeatureSlider")]
         public async Task<IActionResult> CreateFeatureSlider(CreateFeatureSliderDto createFeatureSliderDto)
         {
+
+            createFeatureSliderDto.Status = false;
             var client = _clientFactory.CreateClient();
 
             var jsonData = JsonConvert.SerializeObject(createFeatureSliderDto);
