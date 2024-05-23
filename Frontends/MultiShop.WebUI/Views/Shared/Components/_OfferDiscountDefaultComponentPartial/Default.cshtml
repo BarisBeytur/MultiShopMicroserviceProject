@@ -1,26 +1,24 @@
-﻿    <!-- Offer Start -->
+﻿@model List<ResultOfferDiscountDto>
+
+
+<!-- Offer Start -->
 <div class="container-fluid pt-5 pb-3">
     <div class="row px-xl-5">
-        <div class="col-md-6">
-            <div class="product-offer mb-30" style="height: 300px;">
-                <img class="img-fluid" src="https://img.freepik.com/free-photo/portrait-happy-lady-sunglasses-standing-with-colorful-shopping-bags-hands-pink-background-young-woman-standing-white-shirt-denim-shorts_574295-1182.jpg?size=626&ext=jpg&ga=GA1.1.553209589.1714694400&semt=ais" alt="">
-                <div class="offer-text">
-                    <h6 class="text-white text-uppercase">KADIN GİYİMDE %15 İNDİRİM</h6>
-                    <h3 class="text-white mb-3">Kadın Giyim</h3>
-                    <a href="" class="btn btn-primary">Alışverişe Başla</a>
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6">
+                <div class="product-offer mb-30" style="height: 300px;">
+                    <img class="img-fluid" src="@item.ImageUrl" alt="">
+                    <div class="offer-text">
+                        <h6 class="text-white text-uppercase">@item.Title</h6>
+                        <h3 class="text-white mb-3">@item.SubTitle</h3>
+                        <a href="" class="btn btn-primary">@item.ButtonTitle</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="product-offer mb-30" style="height: 300px;">
-                <img class="img-fluid" src="https://t3.ftcdn.net/jpg/03/06/24/76/360_F_306247637_wO7lVDE3IVPJC2RumLDXMoZS1c2MGNV3.jpg" alt="">
-                <div class="offer-text">
-                    <h6 class="text-white text-uppercase">ERKEK GİYİMDE %20 İNDİRİM</h6>
-                    <h3 class="text-white mb-3">Erkek Giyim</h3>
-                    <a href="" class="btn btn-primary">Alışverişe Başla</a>
-                </div>
-            </div>
-        </div>
+        }
+
     </div>
 </div>
 <!-- Offer End -->
