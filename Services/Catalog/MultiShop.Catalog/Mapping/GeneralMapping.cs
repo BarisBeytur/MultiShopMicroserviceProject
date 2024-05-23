@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MultiShop.Catalog.Dtos.Brand;
 using MultiShop.Catalog.Dtos.Category;
 using MultiShop.Catalog.Dtos.Feature;
 using MultiShop.Catalog.Dtos.FeatureSlider;
@@ -50,11 +51,16 @@ namespace MultiShop.Catalog.Mapping
             CreateMap<OfferDiscount, UpdateOfferDiscountDto>().ReverseMap();
             CreateMap<OfferDiscount, GetByIdOfferDiscountDto>().ReverseMap();
 
-
             CreateMap<ProductImage,ResultProductImageDto>().ReverseMap();
             CreateMap<ProductImage,CreateProductImageDto>().ReverseMap();
             CreateMap<ProductImage,UpdateProductImageDto>().ReverseMap();
             CreateMap<ProductImage,GetByIdProductImageDto>().ReverseMap();
+
+            CreateMap<Brand, ResultBrandDto>().ReverseMap();
+            CreateMap<Brand, CreateBrandDto>().ReverseMap();
+            CreateMap<Brand, UpdateBrandDto>().ReverseMap();
+            CreateMap<Brand, GetByIdBrandDto>().ReverseMap();
+
 
             CreateMap<Product,ResultProductsWithCategoryDto>().ReverseMap();
         }

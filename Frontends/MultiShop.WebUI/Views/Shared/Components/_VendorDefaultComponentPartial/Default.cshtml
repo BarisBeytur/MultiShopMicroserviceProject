@@ -1,23 +1,18 @@
-﻿<!-- Vendor Start -->
+﻿@model List<ResultBrandDto>
+
+<!-- Vendor Start -->
 <div class="container-fluid py-5">
     <div class="row px-xl-5">
         <div class="col">
             <div class="owl-carousel vendor-carousel">
-                <div class="bg-light p-4" style="height:200px !important; width:220px !important">
-                    <img src="data:image/png;base64,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" alt="">
-                </div>
-                <div class="bg-light p-4" style="height:200px !important; width:220px !important">
-                    <img src="https://i.pinimg.com/736x/33/e6/3d/33e63d5adb0da6b303a83901c8e8463a.jpg" alt="">
-                </div>
-                <div class="bg-light p-4" style="height:200px !important; width:220px !important">
-                    <img src="https://logowik.com/content/uploads/images/407_hummel_logo.jpg" alt="">
-                </div>
-                <div class="bg-light p-4" style="height:200px !important; width:220px !important">
-                    <img src="https://logowik.com/content/uploads/images/defacto-yeni-20216977.jpg" alt="">
-                </div>
-                <div class="bg-light p-4" style="height:200px !important; width:220px !important">
-                    <img src="https://logowik.com/content/uploads/images/koton9388.jpg" alt="">
-                </div>
+
+                @foreach (var item in Model)
+                {
+                    <div class="bg-light p-4" style="height:200px !important; width:220px !important; border-radius:40px;">
+                        <img src="@item.ImageUrl" alt="">
+                    </div>
+                }
+
             </div>
         </div>
     </div>
