@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MultiShop.WebUI.Constants.FooterConstants;
 
 namespace MultiShop.WebUI.ViewComponents.UILayoutViewComponents
 {
@@ -6,6 +7,10 @@ namespace MultiShop.WebUI.ViewComponents.UILayoutViewComponents
     {
         public IViewComponentResult Invoke()
         {
+            ViewBag.Description = FooterConstants.Description;
+            ViewBag.Phone = FooterConstants.Phone;
+            ViewBag.Email = FooterConstants.Email;
+            ViewBag.Address = FooterConstants.Address;
             return View();
         }
     }
