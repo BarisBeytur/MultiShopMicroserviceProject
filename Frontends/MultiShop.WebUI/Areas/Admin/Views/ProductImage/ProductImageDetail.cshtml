@@ -4,18 +4,35 @@
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
-<form asp-action="ProductImageDetail" method="post">
 
-            <input type="text" id="productId" name="ProductId" value="@Model.ProductId" />
-            <input type="text" id="id" name="Id" value="@Model.Id" />
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="bs-example" data-example-id="bordered-table">
 
-            <input type="text" class="form-control" asp-for="Image1" />
-            <br />
-            <input type="text" class="form-control" asp-for="Image2" />
-            <br />
-            <input type="text" class="form-control" asp-for="Image3" />
-            <br />
-            <input type="text" class="form-control" asp-for="Image4" />
+                    <form asp-action="ProductImageDetail" method="post">
 
-            <button type="submit">Kaydet</button>
-</form>
+                        <input type="hidden" id="productId" asp-for="ProductId" value="@Model.ProductId" />
+                        <input type="hidden" id="id" asp-for="Id" value="@Model.Id" />
+
+                        <label for="name">Görsel 1</label>
+                        <input type="text" class="form-control" asp-for="Image1" />
+                        <br />
+                        <label for="name">Görsel 2</label>
+                        <input type="text" class="form-control" asp-for="Image2" />
+                        <br />
+                        <label for="name">Görsel 3</label>
+                        <input type="text" class="form-control" asp-for="Image3" />
+                        <br />
+                        <label for="name">Görsel 4</label>
+                        <input type="text" class="form-control" asp-for="Image4" />
+                        <br />
+                        <button class="btn btn-success" type="submit">Kaydet</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
