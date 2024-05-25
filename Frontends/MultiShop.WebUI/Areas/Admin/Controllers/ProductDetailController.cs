@@ -29,7 +29,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
             var client = _clientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync("https://localhost:7070/api/ProductDetail/" + id);
+            var responseMessage = await client.GetAsync("https://localhost:7070/api/ProductDetail/GetProductDetailByProductId?id=" + id);
 
             if (responseMessage.IsSuccessStatusCode)
             {

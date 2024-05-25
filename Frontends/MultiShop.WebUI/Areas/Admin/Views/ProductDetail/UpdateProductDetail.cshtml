@@ -12,8 +12,8 @@
                 <div class="bs-example" data-example-id="bordered-table">
 
                     <form method="post">
-                        <input type="hidden" asp-for="Id" />
-                        <input type="hidden" asp-for="ProductId" />
+                        <input type="hidden" asp-for="Id" value="@Model.Id" />
+                        <input type="hidden" asp-for="ProductId" value="@Model.ProductId" />
                         <label for="name">Ürün Açıklaması</label>
                         <textarea rows="5" class="form-control" asp-for="Description"></textarea>
                         <br />
