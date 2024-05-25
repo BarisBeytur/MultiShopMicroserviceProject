@@ -22,10 +22,10 @@ namespace MultiShop.Catalog.Services.ProductImageServices
             _mapper = mapper;
         }
 
-        public async Task<List<GetByIdProductImageDto>> GetByIdProductImageAsync(string id)
+        public async Task<GetByIdProductImageDto> GetByIdProductImageAsync(string id)
         {
-            var values = await _productImageCollection.Find(x => x.ProductId == id).ToListAsync();
-            return _mapper.Map<List<GetByIdProductImageDto>>(values);
+            var values = await _productImageCollection.Find(x => x.ProductId == id).FirstOrDefaultAsync();
+            return _mapper.Map<GetByIdProductImageDto>(values);
         }
     }
 }
