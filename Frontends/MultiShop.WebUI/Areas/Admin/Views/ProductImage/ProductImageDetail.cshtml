@@ -1,0 +1,21 @@
+﻿@model GetByIdProductImageDto
+@{
+    ViewData["Title"] = "ProductImageDetail";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<form asp-action="ProductImageDetail" method="post">
+
+            <input type="text" id="productId" name="ProductId" value="@Model.ProductId" />
+            <input type="text" id="id" name="Id" value="@Model.Id" />
+
+            <input type="text" class="form-control" asp-for="Image1" />
+            <br />
+            <input type="text" class="form-control" asp-for="Image2" />
+            <br />
+            <input type="text" class="form-control" asp-for="Image3" />
+            <br />
+            <input type="text" class="form-control" asp-for="Image4" />
+
+            <button type="submit">Kaydet</button>
+</form>
