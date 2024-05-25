@@ -6,5 +6,6 @@ namespace MultiShop.Catalog.Services.ProductDetailServices
 {
     public interface IProductDetailService : IGenericService<ResultProductDetailDto, GetByIdProductDetailDto, CreateProductDetailDto, UpdateProductDetailDto, ProductDetail>
     {
+        Task<GetByIdProductDetailDto> GetProductDetailByProductId(string id);
     }
 }
