@@ -1,6 +1,6 @@
-﻿namespace MultiShop.DtoLayer.CatalogDtos.ProductDetail
+﻿namespace MultiShop.DtoLayer.CatalogDtos.ProductDetailDtos
 {
-    public class ResultProductDetailDto
+    public class GetByIdProductDetailDto
     {
         public string Id { get; set; }
         public string Description { get; set; }

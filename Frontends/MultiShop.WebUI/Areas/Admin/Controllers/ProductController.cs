@@ -112,7 +112,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             var responseMessage = await client.PostAsync("https://localhost:7070/api/Product", data);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("ProductListWithCategory", "Product", new { Area = "Admin" });
             }
             return View();
         }
